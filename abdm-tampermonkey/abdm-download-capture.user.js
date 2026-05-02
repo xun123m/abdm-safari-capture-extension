@@ -3,7 +3,9 @@
 // @namespace    local.abdm.tampermonkey
 // @version      0.1.0
 // @description  Capture downloadable links on web pages and send them to AB Download Manager.
+// @description:zh-CN  捕获网页中的下载链接，并发送到 AB Download Manager。
 // @author       local
+// @license      MIT
 // @match        http://*/*
 // @match        https://*/*
 // @exclude      http://127.0.0.1/*
