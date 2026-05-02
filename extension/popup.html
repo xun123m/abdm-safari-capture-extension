@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ABDM Safari Capture</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="popup">
+  <main>
+    <header class="topbar">
+      <img src="icons/icon-48.png" alt="" width="32" height="32">
+      <div>
+        <h1>ABDM Safari Capture</h1>
+        <p id="status">正在检查连接...</p>
+      </div>
+    </header>
+
+    <section class="panel">
+      <label class="row">
+        <span>点击下载链接时接管</span>
+        <input id="autoCaptureClicks" type="checkbox">
+      </label>
+      <label class="row">
+        <span>嗅探 Safari 下载响应</span>
+        <input id="autoSniffResponses" type="checkbox">
+      </label>
+      <label class="row">
+        <span>ABDM 失败时继续 Safari 下载</span>
+        <input id="allowNativeOnFailure" type="checkbox">
+      </label>
+    </section>
+
+    <section class="panel compact">
+      <label for="port">ABDM 端口</label>
+      <div class="inline">
+        <input id="port" type="number" min="1024" max="65535" step="1">
+        <button id="test" type="button">测试</button>
+      </div>
+    </section>
+
+    <footer>
+      <button id="save" type="button">保存</button>
+      <button id="options" type="button" class="secondary">更多设置</button>
+    </footer>
+  </main>
+  <script src="shared.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ABDM Safari Capture 设置</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="options">
+  <main>
+    <header class="page-header">
+      <img src="icons/icon-96.png" alt="" width="48" height="48">
+      <div>
+        <h1>ABDM Safari Capture</h1>
+        <p>Safari 下载请求接管设置</p>
+      </div>
+    </header>
+
+    <section class="settings-grid">
+      <div class="panel">
+        <h2>捕获</h2>
+        <label class="row">
+          <span>点击下载链接时接管</span>
+          <input id="autoCaptureClicks" type="checkbox">
+        </label>
+        <label class="row">
+          <span>嗅探 Safari 下载响应</span>
+          <input id="autoSniffResponses" type="checkbox">
+        </label>
+        <label class="row">
+          <span>未知二进制响应也发送给 ABDM</span>
+          <input id="captureAllFileTypes" type="checkbox">
+        </label>
+        <label class="row">
+          <span>ABDM 失败时继续 Safari 下载</span>
+          <input id="allowNativeOnFailure" type="checkbox">
+        </label>
+      </div>
+
+      <div class="panel">
+        <h2>ABDM</h2>
+        <label class="field">
+          <span>端口</span>
+          <input id="port" type="number" min="1024" max="65535" step="1">
+        </label>
+        <label class="row">
+          <span>发送请求头</span>
+          <input id="sendHeaders" type="checkbox">
+        </label>
+        <label class="row">
+          <span>发送 Cookie</span>
+          <input id="sendCookies" type="checkbox">
+        </label>
+        <label class="row">
+          <span>静默添加</span>
+          <input id="silentAddDownload" type="checkbox">
+        </label>
+        <label class="row">
+          <span>静默开始</span>
+          <input id="silentStartDownload" type="checkbox">
+        </label>
+        <label class="row">
+          <span>显示通知</span>
+          <input id="showNotifications" type="checkbox">
+        </label>
+      </div>
+
+      <div class="panel wide">
+        <h2>文件类型</h2>
+        <label class="field">
+          <span>要接管的扩展名，使用空格、逗号或换行分隔</span>
+          <textarea id="registeredFileTypes" rows="8"></textarea>
+        </label>
+        <label class="field short">
+          <span>最小文件大小 KB，0 表示不限</span>
+          <input id="captureFileSizeMinimumKb" type="number" min="0" step="1">
+        </label>
+      </div>
+
+      <div class="panel wide">
+        <h2>排除</h2>
+        <label class="field">
+          <span>不接管的网址，每行一个；支持 * 通配符</span>
+          <textarea id="blacklistedUrls" rows="6" placeholder="https://example.com/*"></textarea>
+        </label>
+      </div>
+    </section>
+
+    <footer class="actions">
+      <button id="save" type="button">保存设置</button>
+      <button id="test" type="button" class="secondary">测试连接</button>
+      <button id="reset" type="button" class="secondary">恢复默认</button>
+      <span id="status" aria-live="polite"></span>
+    </footer>
+  </main>
+  <script src="shared.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

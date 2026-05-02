@@ -1,0 +1,59 @@
+{
+  "manifest_version": 2,
+  "name": "ABDM Safari Capture",
+  "version": "0.1.0",
+  "description": "Capture Safari download requests and send them to AB Download Manager.",
+  "homepage_url": "https://abdownloadmanager.com",
+  "icons": {
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png",
+    "128": "icons/icon-128.png"
+  },
+  "permissions": [
+    "contextMenus",
+    "webRequest",
+    "cookies",
+    "storage",
+    "tabs",
+    "notifications",
+    "http://*/*",
+    "https://*/*",
+    "http://localhost/*",
+    "http://127.0.0.1/*"
+  ],
+  "background": {
+    "scripts": [
+      "shared.js",
+      "background.js"
+    ],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_title": "AB Download Manager",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icons/icon-48.png",
+      "96": "icons/icon-96.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "shared.js",
+        "content.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "content_security_policy": "script-src 'self'; object-src 'self'; connect-src http://localhost:* http://127.0.0.1:*;"
+}
