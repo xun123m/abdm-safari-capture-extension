@@ -5,6 +5,10 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 EXTENSION_DIR="$ROOT_DIR/extension"
 OUTPUT_DIR="$ROOT_DIR/dist/safari-xcode"
 
+if [[ -z "${DEVELOPER_DIR:-}" && -d "/Applications/Xcode.app/Contents/Developer" ]]; then
+  export DEVELOPER_DIR="/Applications/Xcode.app/Contents/Developer"
+fi
+
 if xcrun -f safari-web-extension-packager >/dev/null 2>&1; then
   PACKAGER="safari-web-extension-packager"
 elif xcrun -f safari-web-extension-converter >/dev/null 2>&1; then
