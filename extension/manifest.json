@@ -6,7 +6,6 @@
   "homepage_url": "https://abdownloadmanager.com",
   "icons": {
     "48": "icons/icon-48.png",
-    "96": "icons/icon-96.png",
     "128": "icons/icon-128.png"
   },
   "permissions": [
@@ -33,7 +32,6 @@
     "default_popup": "popup.html",
     "default_icon": {
       "48": "icons/icon-48.png",
-      "96": "icons/icon-96.png",
       "128": "icons/icon-128.png"
     }
   },
